@@ -291,11 +291,12 @@ static int fbtft_driver_probe_pdev(struct platform_device *pdev)           \
 	return fbtft_probe_common(_display, NULL, pdev);                   \
 }                                                                          \
 									   \
-static void fbtft_driver_remove_pdev(struct platform_device *pdev)          \
+static int fbtft_driver_remove_pdev(struct platform_device *pdev)           \
 {                                                                          \
 	struct fb_info *info = platform_get_drvdata(pdev);                 \
 									   \
 	fbtft_remove_common(&pdev->dev, info);                             \
+	return 0;                                                          \
 }                                                                          \
 									   \
 static const struct of_device_id dt_ids[] = {                              \
