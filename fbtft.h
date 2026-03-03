@@ -279,11 +279,11 @@ static int fbtft_driver_probe_spi(struct spi_device *spi)                  \
 	return fbtft_probe_common(_display, spi, NULL);                    \
 }                                                                          \
 									   \
-static int fbtft_driver_remove_spi(struct spi_device *spi)                 \
+static void fbtft_driver_remove_spi(struct spi_device *spi)                 \
 {                                                                          \
 	struct fb_info *info = spi_get_drvdata(spi);                       \
 									   \
-	return fbtft_remove_common(&spi->dev, info);                       \
+	fbtft_remove_common(&spi->dev, info);                       \
 }                                                                          \
 									   \
 static int fbtft_driver_probe_pdev(struct platform_device *pdev)           \
