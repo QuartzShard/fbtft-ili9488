@@ -117,9 +117,9 @@ int write_vmem16_bus8(struct fbtft_par *par, size_t offset, size_t len)
 			u8 g8 = (g & 0x3F) << 2;
 			u8 b8 = (b & 0x1F) << 3;
 
-			txbuf[i * 3 + 2] = r8;
+			txbuf[i * 3 + 0] = r8;
 			txbuf[i * 3 + 1] = g8;
-			txbuf[i * 3 + 0] = b8;
+			txbuf[i * 3 + 2] = b8;
 		}
 
 		vmem16 = vmem16 + to_copy;
